@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>felt.</title>
+  <meta name="description" content="how are you feeling? felt. turns that into a playlist." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div id="app">
+    <header class="header">
+      <div class="logo">felt.</div>
+      <div class="header-actions">
+        <button id="tastes-btn" class="header-btn">tastes</button>
+        <button id="history-btn" class="header-btn">my playlists</button>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- Home -->
+      <section id="home-screen" class="screen active">
+        <div class="center-block">
+          <h1>how are you feeling?</h1>
+          <p class="hint">say it in your own words</p>
+
+          <div class="input-wrap">
+            <textarea
+              id="feeling-input"
+              placeholder="proud and somehow lonely…"
+              rows="3"
+            ></textarea>
+            <button id="generate-btn" class="send-btn" disabled>send</button>
+          </div>
+
+          <div class="examples">
+            <button class="example" data-text="proud and somehow lonely">proud and somehow lonely</button>
+            <button class="example" data-text="the quiet after a fight">the quiet after a fight</button>
+            <button class="example" data-text="restless energy that has nowhere to go">restless energy</button>
+            <button class="example" data-text="warm nostalgia for a summer that never happened">warm nostalgia</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Loading -->
+      <section id="loading-screen" class="screen">
+        <div class="center-block">
+          <div class="spinner"></div>
+          <p id="loading-text">listening…</p>
+        </div>
+      </section>
+
+      <!-- Playlist -->
+      <section id="playlist-screen" class="screen">
+        <div class="top-bar">
+          <button id="back-btn" class="text-link">← back</button>
+          <button id="save-btn" class="header-btn">save</button>
+        </div>
+
+        <div class="playlist-intro">
+          <p class="felt-as">felt as</p>
+          <h2 id="emotion-name"></h2>
+          <p id="emotion-description"></p>
+          <p id="playlist-feeling" class="original-text"></p>
+        </div>
+
+        <div class="tracks" id="tracks-list"></div>
+
+        <div class="bottom-actions">
+          <button id="regenerate-btn" class="outline-btn">different songs</button>
+          <button id="copy-btn" class="outline-btn">copy list</button>
+        </div>
+      </section>
+
+      <!-- My Playlists -->
+      <section id="history-screen" class="screen">
+        <div class="top-bar">
+          <button id="back-from-history" class="text-link">← back</button>
+          <span class="screen-title">my playlists</span>
+        </div>
+        <div id="history-list" class="history-list"></div>
+        <p id="history-empty" class="empty">nothing saved yet</p>
+      </section>
+    </main>
+  </div>
+
+  <!-- Tastes sheet -->
+  <div id="tastes-modal" class="sheet">
+    <div class="sheet-inner">
+      <div class="sheet-header">
+        <h2>your tastes</h2>
+        <button id="close-tastes" class="text-link">done</button>
+      </div>
+      <p class="sheet-sub">these shape every playlist</p>
+
+      <div class="section">
+        <h3>genres</h3>
+        <div class="chips" id="genre-chips"></div>
+      </div>
+      <div class="section">
+        <h3>vibes</h3>
+        <div class="chips" id="vibe-chips"></div>
+      </div>
+      <div class="section">
+        <h3>artists you like</h3>
+        <input type="text" id="artists-input" placeholder="frank ocean, phoebe bridgers…" />
+      </div>
+      <button id="save-tastes-btn" class="send-btn full">save tastes</button>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="js/firebase-config.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/ai.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
