@@ -1,36 +1,31 @@
 # felt.
 
-how are you feeling?  
+how are you feeling?
 felt. turns that into a playlist.
 
-## what it does
+## files (all in one place — no folders)
 
-- type how you actually feel
-- hit **send**
-- get a playlist of 10+ songs that match the texture of that feeling
-- save them under **my playlists**
-- optional music tastes shape every playlist
+- index.html
+- styles.css
+- firebase-config.js   ← your Firebase keys are already in here
+- data.js
+- ai.js
+- app.js
+- README.md
 
-## stack
+## deploy to GitHub Pages
 
-pure html / css / javascript  
-works offline · ready for github pages · optional firebase
+1. create a new repo
+2. upload these files to the root (no folders)
+3. Settings → Pages → Deploy from branch → main → / (root)
+4. live at https://YOUR_USERNAME.github.io/REPO_NAME/
 
-## deploy to github pages
+## firebase
 
-1. create a repo
-2. upload everything in this folder to the root
-3. settings → pages → deploy from `main` / root
-4. live at `https://YOUR_USERNAME.github.io/REPO_NAME/`
+config is already filled in for project felt-69d38.
 
-## firebase (optional)
+in the Firebase console also:
+1. Authentication → Sign-in method → enable Anonymous
+2. Firestore Database → create database (test mode is fine while building)
 
-1. create a firebase project + web app
-2. paste config into `js/firebase-config.js`
-3. enable anonymous auth + firestore
-
-without firebase everything still works via localStorage.
-
-## colors
-
-warm paper background with brown / light brown / dark brown buttons.
+without those two steps, playlists still save on the device via localStorage.
