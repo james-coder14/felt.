@@ -78,6 +78,13 @@
 
         <div class="tracks" id="tracks-list"></div>
 
+        <!-- Add to streaming services -->
+        <div class="add-playlist-box">
+          <p class="add-playlist-label">Add this playlist?</p>
+          <button id="spotify-btn" class="service-btn spotify">Add playlist to Spotify</button>
+          <button id="apple-btn" class="service-btn apple">Add playlist to Apple Music</button>
+        </div>
+
         <div class="bottom-actions">
           <button id="regenerate-btn" class="outline-btn">different songs</button>
           <button id="copy-btn" class="outline-btn">copy list</button>
@@ -115,7 +122,14 @@
       </div>
       <div class="section">
         <h3>artists you like</h3>
-        <input type="text" id="artists-input" placeholder="frank ocean, phoebe bridgers…" />
+        <p class="field-hint">type names, separated by commas</p>
+        <input
+          type="text"
+          id="artists-input"
+          placeholder="frank ocean, phoebe bridgers, radiohead…"
+          autocomplete="off"
+          enterkeyhint="done"
+        />
       </div>
       <button id="save-tastes-btn" class="send-btn full">save tastes</button>
     </div>

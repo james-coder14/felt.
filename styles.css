@@ -538,3 +538,57 @@ h1 .accent {
     max-height: 80vh;
   }
 }
+
+/* Add playlist to Spotify / Apple Music */
+.add-playlist-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.add-playlist-label {
+  font-size: 0.8rem;
+  color: var(--text-soft);
+  margin-bottom: 2px;
+}
+
+.service-btn {
+  width: 100%;
+  border: none;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 14px 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.service-btn.spotify {
+  background: #1DB954;
+  color: #000;
+}
+
+.service-btn.spotify:active {
+  opacity: 0.85;
+}
+
+.service-btn.apple {
+  background: #fc3c44;
+  color: #fff;
+}
+
+.service-btn.apple:active {
+  opacity: 0.85;
+}
+
+.field-hint {
+  font-size: 0.75rem;
+  color: #6b6258;
+  margin-bottom: 8px;
+}

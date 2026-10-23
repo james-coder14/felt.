@@ -251,6 +251,29 @@ async function showHistory() {
   });
 }
 
+function openInSpotify() {
+  if (!state.currentPlaylist.length) return;
+  // Build a search that pulls up the songs; user can then save as a playlist in Spotify
+  const query = state.currentPlaylist
+    .slice(0, 8)
+    .map(t => t.title + " " + t.artist)
+    .join(" ");
+  const url = "https://open.spotify.com/search/" + encodeURIComponent(query);
+  window.open(url, "_blank", "noopener");
+  toast("opening spotify — search results for your songs");
+}
+
+function openInAppleMusic() {
+  if (!state.currentPlaylist.length) return;
+  const query = state.currentPlaylist
+    .slice(0, 5)
+    .map(t => t.title + " " + t.artist)
+    .join(" ");
+  const url = "https://music.apple.com/search?term=" + encodeURIComponent(query);
+  window.open(url, "_blank", "noopener");
+  toast("opening apple music — search results for your songs");
+}
+
 function copyPlaylist() {
   if (!state.currentPlaylist.length) return;
   const text = state.currentPlaylist
@@ -292,6 +315,8 @@ function init() {
   $("#regenerate-btn").addEventListener("click", regenerate);
   $("#save-btn").addEventListener("click", saveCurrentPlaylist);
   $("#copy-btn").addEventListener("click", copyPlaylist);
+  $("#spotify-btn").addEventListener("click", openInSpotify);
+  $("#apple-btn").addEventListener("click", openInAppleMusic);
 
   $("#tastes-btn").addEventListener("click", () => {
     $("#tastes-modal").classList.add("active");
