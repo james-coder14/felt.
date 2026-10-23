@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>felt.</title>
   <meta name="description" content="how are you feeling? felt. turns that into a playlist." />
+  <meta name="theme-color" content="#0c0b0a" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -27,23 +28,28 @@
       <!-- Home -->
       <section id="home-screen" class="screen active">
         <div class="center-block">
-          <h1>how are you feeling?</h1>
-          <p class="hint">say it in your own words</p>
+          <h1>How are you <span class="accent">actually</span> feeling?</h1>
+          <p class="hint">Not sad. Not mad. The real texture — then a playlist of songs that express it.</p>
 
           <div class="input-wrap">
             <textarea
               id="feeling-input"
-              placeholder="proud and somehow lonely…"
-              rows="3"
+              placeholder="The fight you haven't answered. The pride that feels lonely. The 2am restlessness with no name."
+              rows="4"
             ></textarea>
-            <button id="generate-btn" class="send-btn" disabled>send</button>
+            <div class="send-row">
+              <span class="send-label">A sentence is enough</span>
+              <button id="generate-btn" class="send-btn" disabled>Make the playlist</button>
+            </div>
           </div>
 
+          <p class="examples-label">Start from a thread</p>
           <div class="examples">
-            <button class="example" data-text="proud and somehow lonely">proud and somehow lonely</button>
-            <button class="example" data-text="the quiet after a fight">the quiet after a fight</button>
-            <button class="example" data-text="restless energy that has nowhere to go">restless energy</button>
-            <button class="example" data-text="warm nostalgia for a summer that never happened">warm nostalgia</button>
+            <button class="example" data-text="Proud of myself, and somehow lonely about it">Proud of myself, and somehow lonely about it</button>
+            <button class="example" data-text="The quiet after a fight, when nobody texts first">The quiet after a fight, when nobody texts first</button>
+            <button class="example" data-text="Restless at 2am, like my body is waiting for news">Restless at 2am, like my body is waiting for news</button>
+            <button class="example" data-text="Nostalgic for a version of me I don't want back">Nostalgic for a version of me I don't want back</button>
+            <button class="example" data-text="Happy in a way that feels borrowed">Happy in a way that feels borrowed</button>
           </div>
         </div>
       </section>
